@@ -18,6 +18,7 @@ public abstract class MixinBlockState {
     @Shadow public abstract Block getBlock();
 
     /**
+     * Prevents blocks from different redstone systems from giving eachother strong redstone power.
      * @author TheShinyBunny
      */
     @Overwrite

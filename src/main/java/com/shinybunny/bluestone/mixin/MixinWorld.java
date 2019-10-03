@@ -22,6 +22,7 @@ public abstract class MixinWorld implements BlockView {
     @Shadow public abstract int getEmittedRedstonePower(BlockPos blockPos_1, Direction direction_1);
 
     /**
+     * Changes how redstone/bluestone components find redstone/bluestone power, making sure the are no cross-color reactions.
      * @author TheShinyBunny
      */
     @Overwrite
@@ -51,6 +52,12 @@ public abstract class MixinWorld implements BlockView {
         return int_1;
     }
 
+    /**
+     * If we are currently looking for redstone/bluestone power, prevents blocks of the other type from giving power.
+     * @param blockPos_1
+     * @param direction_1
+     * @param cir
+     */
     @Inject(method = "getEmittedRedstonePower",at=@At("HEAD"),cancellable = true)
     private void getEmittedRedstone(BlockPos blockPos_1, Direction direction_1, CallbackInfoReturnable<Integer> cir) {
         if (BlueStoneMain.powerAskingBlock != null) {

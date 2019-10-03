@@ -35,6 +35,12 @@ public class BlueStoneMain implements ModInitializer, ClientModInitializer {
     public static List<Block> BLUESTONE_COMPONENTS = Arrays.asList(BLUESTONE_WIRE, REPEATER, COMPARATOR, BLUESTONE_TORCH, BLUESTONE_BLOCK, BLUESTONE_TORCH_WALL);
     private static List<Block> REDSTONE_COMPONENTS = Arrays.asList(Blocks.REDSTONE_WIRE,Blocks.REPEATER,Blocks.COMPARATOR,Blocks.REDSTONE_TORCH, Blocks.REDSTONE_BLOCK, Blocks.REDSTONE_WALL_TORCH);
 
+    /**
+     * Whether the 2 provided block types are from the same redstone/bluestone system. Also returns true if they are not redstone/bluestone components.
+     * @param block1
+     * @param block2
+     * @return
+     */
     public static boolean areSameRedstoneSystems(Block block1, Block block2) {
         if (block1 == block2) return true;
         if (BLUESTONE_COMPONENTS.contains(block1) && REDSTONE_COMPONENTS.contains(block2)) return false;
@@ -60,8 +66,11 @@ public class BlueStoneMain implements ModInitializer, ClientModInitializer {
         Registry.register(Registry.BLOCK,new Identifier("bluestone","bluestone_block"), BLUESTONE_BLOCK);
         Registry.register(Registry.ITEM,new Identifier("bluestone","bluestone_block"),new BlockItem(BLUESTONE_BLOCK,new Item.Settings().group(ItemGroup.REDSTONE)));
 
-
         UseBlockCallback.EVENT.register(new UseBlockCallback() {
+
+            /**
+             * Converts redstone dust to bluestone dust when right-clicked with a Lapis Lazuli.
+             */
             @Override
             public ActionResult interact(PlayerEntity playerEntity, World world, Hand hand, BlockHitResult blockHitResult) {
                 Block b = world.getBlockState(blockHitResult.getBlockPos()).getBlock();
@@ -74,11 +83,18 @@ public class BlueStoneMain implements ModInitializer, ClientModInitializer {
         });
     }
 
+    /**
+     * The source block type in the current power-check context. Used for making redstone not check for bluestone and for bluestone not check for redstone.
+     */
     public static Block powerAskingBlock;
 
     @Override
     public void onInitializeClient() {
         ColorProviderRegistry.BLOCK.register(new BlockColorProvider() {
+
+            /**
+             * Provides the blue color for the bluestone dust. Copied from {@link RedstoneWireBlock#getWireColor(int)}, and swapped red and blue parameters.
+             */
             @Override
             public int getColor(BlockState blockState, ExtendedBlockView extendedBlockView, BlockPos blockPos, int i) {
                 int power = blockState.get(BluestoneWireBlock.POWER);

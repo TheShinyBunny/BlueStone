@@ -11,6 +11,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Prevents redstone torches and bluestone torches from powering off from the other color.
+ */
 @Mixin({RedstoneTorchBlock.class, WallRedstoneTorchBlock.class})
 public class MixinRedstoneTorch {
 

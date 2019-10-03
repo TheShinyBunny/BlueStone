@@ -11,6 +11,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Prevents from repeaters and comparators from checking for power from the other redstone color.
+ */
 @Mixin({AbstractRedstoneGateBlock.class, ComparatorBlock.class})
 public class MixinDiodeBlock {
 
