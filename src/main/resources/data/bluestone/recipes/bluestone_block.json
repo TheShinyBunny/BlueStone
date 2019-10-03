@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "bluestone:bluestone"
+    }
+  },
+  "result": {
+    "item": "bluestone:bluestone_block"
+  }
+}

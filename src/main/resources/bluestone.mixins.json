@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.shinybunny.bluestone.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinRedstoneWire",
+    "MixinWorld",
+    "MixinBlockState",
+    "MixinDiodeBlock",
+    "MixinRedstoneTorch"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

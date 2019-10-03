@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "III"
+  ],
+  "key": {
+    "#": {
+      "item": "bluestone:bluestone_torch"
+    },
+    "X": {
+      "item": "bluestone:bluestone"
+    },
+    "I": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "bluestone:repeater"
+  }
+}

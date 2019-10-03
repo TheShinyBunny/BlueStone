@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bluestone:bluestone_block"
+    }
+  ],
+  "result": {
+    "item": "bluestone:bluestone",
+    "count": 9
+  }
+}
