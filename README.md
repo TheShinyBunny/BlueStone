@@ -2,6 +2,8 @@
 
 This mod was made by TheShinyBunny (at https://www.youtube.com/shinybunny)
 
+The template for this mod was created by the Fabric team.
+
 ### Features:
 - Bluestone Dust
 - Bluestone Repeater
