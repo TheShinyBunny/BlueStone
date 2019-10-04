@@ -37,9 +37,6 @@ public class BlueStoneMain implements ModInitializer, ClientModInitializer {
 
     /**
      * Whether the 2 provided block types are from the same redstone/bluestone system. Also returns true if they are not redstone/bluestone components.
-     * @param block1
-     * @param block2
-     * @return
      */
     public static boolean areSameRedstoneSystems(Block block1, Block block2) {
         if (block1 == block2) return true;
